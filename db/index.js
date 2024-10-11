@@ -1,9 +1,9 @@
-const PASSWORD = require(`../8a70h8h7A)D0a1`);
+const a8a70h8h7AD0a1 = require(`../8a70h8h7A)D0a1`);
 const mongoose = require(`mongoose`);
 
 mongoose
   .connect(
-    `mongodb+srv://PedroCr05:${PASSWORD}@clusters.k4z0f.mongodb.net/mealsAPI?retryWrites=true&w=majority&appName=clusters`
+    `mongodb+srv://PedroCr05:${a8a70h8h7AD0a1}@clusters.k4z0f.mongodb.net/mealsAPI?retryWrites=true&w=majority&appName=clusters`
   )
   .then(() => {
     console.log(`
