@@ -1,5 +1,23 @@
 {
   "dependencies": {
-    "mongoose": "^8.7.1"
+    "body-parser": "^1.20.3",
+    "express": "^4.21.1",
+    "mongoose": "^8.7.1",
+    "morgan": "^1.10.0"
+  },
+  "name": "forking-delicious-mongoose-express-recipes",
+  "version": "1.0.0",
+  "description": "![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F3c4987a4-f65d-4155-881a-11f68d602f17_1025x521.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.7"
   }
 }

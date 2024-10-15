@@ -1,24 +1,27 @@
 const db = require(`../db`);
-const { Cuisine, Direction, Recipe } = require(`../models`);
+const { Recipe, Direction } = require(`../models`);
 
 db.on(`error`, console.error.bind(console, `MongoDB connection error:`));
 
 const main = async () => {
   await Recipe.deleteMany();
 
-  const chickenParmesan = await Direction.findOne({
-    title: `Chicken Parmesan Directions`,
+  const chickenParmesanDirection = await Direction.findOne({
+    name: `Chicken Parmesan Directions`,
   });
 
-  const chickenParmesanCuisine = await Cuisine.findOne({
-    title: `Chicken Parmesan`,
+  const beefSoupDirection = await Direction.findOne({
+    name: `Los Barrios Caldo De Res Directions`,
+  });
+
+  const sulppangDirection = await Direction.findOne({
+    name: `Sulppang Directions`,
   });
 
   const recipes = [
     {
-      title: `Chicken Parmesan`,
-      cuisine: chickenParmesanCuisine._id,
-      directions: chickenParmesan._id,
+      name: `Chicken Parmesan`,
+      directions: chickenParmesanDirection._id,
       ingredients: [
         { name: `Chicken breast halves`, quantity: `4 skinless, boneless` },
         { name: `Salt and freshly ground black pepper`, quantity: `to taste` },
@@ -38,6 +41,42 @@ const main = async () => {
       totalTimeInMin: 45,
       servings: 4,
       source: `https://www.allrecipes.com/recipe/223042/chicken-parmesan/`,
+      publishedDate: new Date(`2024-10-10`),
+    },
+    {
+      name: `Los Barrios Caldo De Res`,
+      directions: beefSoupDirection._id,
+      ingredients: [
+        { name: `Beef`, quantity: `500g` },
+        { name: `Vegetables`, quantity: `800g, cut into large chunks` },
+        { name: `Water`, quantity: `32 ounces` },
+        { name: `Salt` },
+        { name: `Seasoning` },
+      ],
+      prepTimeInMin: 20,
+      cookTimeInMin: 120,
+      totalTimeInMin: 140,
+      servings: 6,
+      source: `https://www.food.com/recipe/los-barrios-caldo-de-res-beef-soup-127747`,
+      publishedDate: new Date(`2024-10-10`),
+    },
+    {
+      name: `Sulppang`,
+      directions: sulppangDirection._id,
+      ingredients: [
+        { name: `Makgeolli`, quantity: `1 cup` },
+        { name: `Sugar`, quantity: `67g (1/3 cup)` },
+        { name: `Dry yeast`, quantity: `1 teaspoon` },
+        { name: `Kosher salt`, quantity: `½ teaspoon` },
+        { name: `All-purpose flour`, quantity: `312g (2½ cups)` },
+        { name: `Apple`, quantity: `75g (½ cup)` },
+        { name: `Fresh cranberry beans`, quantity: `85g (½ cup)` },
+      ],
+      prepTimeInMin: 20,
+      cookTimeInMin: 35,
+      totalTimeInMin: 55,
+      servings: 4,
+      source: `https://www.maangchi.com/recipe/sulppang`,
       publishedDate: new Date(`2024-10-10`),
     },
   ];

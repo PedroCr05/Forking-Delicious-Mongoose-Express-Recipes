@@ -2,9 +2,7 @@ const { Schema } = require(`mongoose`);
 
 const DirectionSchema = new Schema(
   {
-    title: { type: String, required: true },
-    cuisine: { type: Schema.Types.ObjectId, ref: `Cuisine` },
-    recipe: { type: Schema.Types.ObjectId, ref: `Recipe` },
+    name: { type: String, required: true },
     directions: [
       {
         directionName: { type: String, required: false },
